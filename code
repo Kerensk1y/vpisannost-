@@ -1,0 +1,61 @@
+import math
+import sys
+a = input('Будет ли хотя бы в одной переменной число с квадратным корнем? -')
+if (a=='да') or (a=="Да"):
+    b = True
+else:
+    b = False
+print(b)
+#задаем координаты центра координат
+c1 = float(input('Введите точку центра окружности по оси х: '))
+if (b==True):
+    if (c1!= 0):
+        sqrt=float(input('кв корень из '))
+        sqrt=math.sqrt(sqrt)
+        c1=c1*sqrt
+c2 = float(input('Введите точку центра окружности по оси у: '))
+if (b==True):
+    if (c2!= 0):
+        sqrt=float(input('кв корень из '))
+        sqrt=math.sqrt(sqrt)
+        c2=c2*sqrt
+r = float(input('Введите радиус окружности: '))
+if (b==True):
+    print('R= ', r)
+    if (r==0):
+        print('Ошибка! Радиус окружности не может быть равен 0')
+        sys.exit()
+    else:
+        sqrt=float(input('кв корень из'))
+        sqrt=math.sqrt(sqrt)
+        r=r*sqrt
+n = int(input('Введите количество углов в многоугольнике: '))
+if (n<3):
+    print("Ошибка! Введен не многоугольник")
+    sys.exit()
+P = 0   #счетчик несовпадений расстояния с радиусом
+for i in range(1, n+1, 1):
+    x = float(input('Введите значение координаты x ' + str(i) + ' точки: '))
+    if (b==True):
+        if (x!=0):
+            sqrt=float(input('кв корень из '))
+            sqrt=math.sqrt(sqrt)
+            x=x*sqrt
+    x = x - c1   #находим проекцию r на ось х  
+    y = float(input('Введите значение координаты y ' + str(i) + ' точки: '))
+    if (b==True):
+        if (y!=0):
+            sqrt=float(input('кв корень из '))
+            sqrt=math.sqrt(sqrt)
+            y=y*sqrt
+    y = y - c2   #находим проекцию r на ось у
+    k = math.sqrt(x**2+y**2)   #находим расстояние от центра окружности до вершины
+    print(k)
+    if (r!=k):   #сравниваем фактическое расстояние с радиусом (если окр описана около многоуг, то они равны) 
+        P+=1
+
+if (P==0):
+    print("Многоугольник можно назвать вписанным в окружность")
+
+else:
+    print("Многоугольник нельзя назвать вписанным в окружность")
