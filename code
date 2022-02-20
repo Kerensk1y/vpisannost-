@@ -21,18 +21,18 @@ if (b==True):
         c2=c2*sqrt
 r = float(input('Введите радиус окружности: '))
 if (b==True):
-    print('R= ', r)
     if (r==0):
         print('Ошибка! Радиус окружности не может быть равен 0')
         sys.exit()
     else:
-        sqrt=float(input('кв корень из'))
+        sqrt=float(input('кв корень из '))
         sqrt=math.sqrt(sqrt)
         r=r*sqrt
+print('R= ', r)
 n = int(input('Введите количество углов в многоугольнике: '))
 if (n<3):
     print("Ошибка! Введен не многоугольник")
-    sys.exit()
+    sys.exit()   #прекращение работы программы
 P = 0   #счетчик несовпадений расстояния с радиусом
 for i in range(1, n+1, 1):
     x = float(input('Введите значение координаты x ' + str(i) + ' точки: '))
